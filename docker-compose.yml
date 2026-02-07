@@ -1,0 +1,50 @@
+services:
+  # PostgreSQL для Microcks
+  postgres:
+    image: postgres:15-alpine
+    volumes:
+      - microcks-postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: microcks
+      POSTGRES_PASSWORD: microcks
+      POSTGRES_DB: microcks
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # MongoDB для Microcks
+  mongo:
+    image: mongo:6
+    volumes:
+      - microcks-mongo-data:/data/db
+
+  # Microcks приложение
+  microcks:
+    depends_on:
+      - postgres
+      - mongo
+    image: quay.io/microcks/microcks:latest
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      MICROCKS_OAUTH2_ENABLED: "false"
+      KEYCLOAK_ENABLED: "false"
+      POSTGRES_HOST: postgres
+      POSTGRES_USER: microcks
+      POSTGRES_PASSWORD: microcks
+      POSTGRES_DB: microcks
+      POSTGRES_PORT: 5432
+      SPRING_DATA_MONGODB_URI: mongodb://mongo:27017/microcks
+      JAVA_OPTS: "-Xms512m -Xmx1024m"
+    volumes:
+      - microcks-config:/deployments/config
+      - ./specs:/microcks-imports:ro  # Локальная папка со спецификациями
+
+
+volumes:
+  microcks-postgres-data:
+  microcks-mongo-data:
+  microcks-config:
