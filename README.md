@@ -1,61 +1,36 @@
 # Microcks Custom
 
-Custom build of Microcks API mocking platform with local modifications.
+Кастомная версия Microcks для локального развития и тестирования API.
 
-This repository contains the core Microcks source code as a submodule plus local customizations.
-
-## Quick Start
-
-### Clone with submodules
+## Быстрый старт
 
 ```bash
-git clone --recurse-submodules https://github.com/sergeimeshe2-spec/microcks-custom.git
-cd microcks-custom
-```
-
-### Build Microcks
-
-```bash
-cd microcks
-mvn clean install -DskipTests
-```
-
-### Run locally
-
-```bash
+# Запуск
 docker-compose up -d
+
+# Доступ: http://localhost:8080
+
+# Остановка
+docker-compose down
 ```
 
-Access: http://localhost:8080
-
-## Structure
+## Структура
 
 ```
 microcks-custom/
-├── microcks/           # Microcks source (submodule)
-├── docker-compose.yml  # Local development setup
-└── README.md           # This file
+├── docker-compose.yml  # Локальная разработка
+└── README.md
 ```
 
-## Related Repositories
+## Связанные репозитории
 
 - **Helm Charts**: https://github.com/sergeimeshe2-spec/microcks-helm
 - **Docker**: https://github.com/sergeimeshe2-spec/microcks-docker
 - **CI/CD**: https://github.com/sergeimeshe2-spec/microcks-ci
 - **API Specs**: https://github.com/sergeimeshe2-spec/microcks-specs
 
-## Configuration
+## Конфигурация
 
-### Authentication
-
-OAuth2/Keycloak is **disabled** by default for simplified local development.
-
-### Databases
-
+- **OAuth2**: отключен
 - **PostgreSQL**: `microcks` / `microcks`
-- **MongoDB**: For test results storage
-
-## Documentation
-
-- [Microcks Documentation](https://microcks.io/documentation/)
-- [Microcks GitHub](https://github.com/microcks/microcks)
+- **MongoDB**: для результатов тестов
