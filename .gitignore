@@ -1,0 +1,13 @@
+# Logs
+*.log
+
+# IDE
+.idea/
+.vscode/
+
+# Build
+target/
+*.class
+
+# Docker volumes
+data/

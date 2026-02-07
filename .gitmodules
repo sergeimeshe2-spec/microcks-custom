@@ -1,0 +1,3 @@
+[submodule "microcks"]
+	path = microcks
+	url = https://github.com/microcks/microcks.git
