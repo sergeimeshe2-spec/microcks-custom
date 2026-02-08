@@ -245,6 +245,14 @@
       <id>confluent</id>
       <name>Confluent</name>
       <url>https://packages.confluent.io/maven/</url>
+      <releases>
+        <enabled>true</enabled>
+        <updatePolicy>always</updatePolicy>
+        <checksumPolicy>warn</checksumPolicy>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
     </repository>
   </repositories>
 
