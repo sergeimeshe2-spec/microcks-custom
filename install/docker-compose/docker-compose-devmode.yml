@@ -62,6 +62,11 @@ services:
       #- MAX_UPLOAD_FILE_SIZE=3MB
       - ASYNC_MINION_URL=http://microcks-async-minion:8081
       - KAFKA_BOOTSTRAP_SERVER=kafka:19092
+      # Repository import configuration
+      - MICROCKS_IMPORT_GIT_ENABLED=true
+      - MICROCKS_IMPORT_GIT_URL=https://github.com/sergeimeshe2-spec/microcks-ci.git
+      - MICROCKS_IMPORT_GIT_BRANCH=main
+      - MICROCKS_IMPORT_GIT_SPEC_PATHS=specs/user-service-openapi.yaml;specs/user-events-asyncapi.yaml
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/api/health"]
       start_period: 35s

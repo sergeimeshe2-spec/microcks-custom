@@ -253,6 +253,18 @@
       <version>${protoc-jar.version}</version>
     </dependency>
 
+    <!-- JGit for GitHub repository polling -->
+    <dependency>
+      <groupId>org.eclipse.jgit</groupId>
+      <artifactId>org.eclipse.jgit</artifactId>
+      <version>6.10.0.202406032230-r</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.jgit</groupId>
+      <artifactId>org.eclipse.jgit.ssh.apache</artifactId>
+      <version>6.10.0.202406032230-r</version>
+    </dependency>
+
     <dependency>
       <groupId>com.theokanning.openai-gpt3-java</groupId>
       <artifactId>api</artifactId>
