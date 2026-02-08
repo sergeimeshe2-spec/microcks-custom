@@ -17,6 +17,8 @@
 
   <modules>
     <module>uber</module>
+    <!-- Temporarily excluded due to Confluent dependency issues
     <module>uber-async-minion</module>
+    -->
   </modules>
 </project>

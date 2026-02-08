@@ -11,7 +11,9 @@
     <module>commons/model</module>
     <module>commons/util-el</module>
     <module>webapp</module>
+    <!-- Temporarily excluded due to Confluent dependency issues
     <module>minions/async</module>
+    -->
     <module>distro</module>
   </modules>
 
